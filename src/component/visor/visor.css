@@ -1,0 +1,37 @@
+section.visor {
+  width: calc(100% - 320px);
+  background: #493552;
+  z-index: 3;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ifr {
+  width: 90vw;
+  height: 50.625vw; /* 90*9/16 */
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+span.close-visor {
+  color: #ffffff;
+  font-size: 22pt;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+@media (min-width: 893px) {
+  .ifr {
+    width: 80vw;
+    height: calc(calc(80vw * 9) / 16); /* 45*9/16 */
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
+}
+@media (max-width: 600px) {
+  section.visor {
+    width: 100%;
+  }
+}

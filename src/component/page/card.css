@@ -1,0 +1,29 @@
+.parallax-tilt-effect {
+  background-color: darkgreen;
+  color: white;
+  border: 10px double #ffffff;
+  border-radius: 16px;
+  transform-style: preserve-3d;
+  width: 250px;
+  height: 300px;
+}
+.page.active .parallax-tilt-effect {
+  width: 100px;
+  height: 130px;
+}
+@media (max-width: 600px) {
+  .parallax-tilt-effect {
+    width: 100px;
+    height: 130px;
+  }
+}
+/* .parallax-tilt-effect .inner-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-style: italic;
+  color: white;
+  transform: translateZ(40px);
+} */
