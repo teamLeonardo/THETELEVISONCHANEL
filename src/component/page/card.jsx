@@ -155,7 +155,9 @@ export class CardHover extends React.Component {
         onClick={() => {
           this.props.click(true, urlVideo);
         }}
-      ></div>
+      >
+        {this.props.children}
+      </div>
     );
   }
 }

@@ -6,7 +6,7 @@ export default ({ onclose, state, video }) => {
         <i className="fas fa-times-circle"></i>
       </span>
       {state === true && (
-        <iframe title="elframer" className="ifr" src={video} />
+        <iframe className="ifr" src={video}/>
       )}
     </section>
   );

@@ -1,6 +1,6 @@
 section.visor {
   width: calc(100% - 320px);
-  background: #493552;
+  background-color: var(--colorFondo2) !important;
   z-index: 3;
   height: 100vh;
   position: relative;
@@ -23,9 +23,9 @@ span.close-visor {
   cursor: pointer;
 }
 @media (min-width: 893px) {
-  .ifr {
-    width: 80vw;
-    height: calc(calc(80vw * 9) / 16); /* 45*9/16 */
+ .ifr {
+    width: 75vw;
+    height: calc(calc(75vw * 9) / 16); /* 45*9/16 */
     margin-left: 2vw;
     margin-right: 2vw;
   }
