@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
-// import {useDownloadURL  } from "react-firebase-hooks/storage";
 import { auth, db } from "../../firebase";
 import Loader from "../Loader";
 // import Modal from "../modal";
@@ -14,6 +13,12 @@ export default ({ onclick, state }) => {
 
   const [show, setShow] = useState(false)
 
+  // storage()
+  //   .refFromURL("gs://thetelevisonchanel.appspot.com/este.mp4")
+  //   .getDownloadURL()
+  //   .then((res) => {
+  //     console.log(res);
+  //   })
   const [value] = useCollection(db.collection("datos"), {
     snapshotListenOptions: { includeMetadataChanges: true }
   });
@@ -74,7 +79,7 @@ export default ({ onclick, state }) => {
       {load && <Loader />}
       {error && <span> error </span>}
       {
-        videos && value &&
+        (videos && value) &&
         <>
           <Modal
             visible={show}

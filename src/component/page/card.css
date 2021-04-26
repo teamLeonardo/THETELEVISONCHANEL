@@ -4,8 +4,8 @@
   border: 10px double #ffffff;
   border-radius: 16px;
   transform-style: preserve-3d;
-  width: 250px;
-  height: 300px;
+  width: 220px;
+  height: 280px;
 }
 .page.active .parallax-tilt-effect {
   width: 100px;

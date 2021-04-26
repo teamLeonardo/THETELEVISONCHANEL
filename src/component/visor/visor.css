@@ -7,13 +7,46 @@ section.visor {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
+
+.back {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: calc(100% / 2) - 50%;
+  filter: blur(15px);
+}
+
+.fonrt {
+  position: relative;
+  z-index: 2;
+  pointer-events: all;
+
+}
+
 .ifr {
   width: 90vw;
-  height: 50.625vw; /* 90*9/16 */
+  height: 50.625vw;
+  /* 90*9/16 */
   margin-left: 5vw;
   margin-right: 5vw;
 }
+
+.fonrt span {
+  color: #ffffff;
+  font-size: 60px;
+  position: absolute;
+  z-index: 3;
+  pointer-events: all;
+
+  top: calc(50% - calc(60px / 2));
+  left: calc(50% - calc(60px / 2));
+}
+.fonrt span i {
+  cursor: pointer;
+}
+
 span.close-visor {
   color: #ffffff;
   font-size: 22pt;
@@ -22,15 +55,18 @@ span.close-visor {
   right: 10px;
   cursor: pointer;
 }
+
 @media (min-width: 893px) {
- .ifr {
+  .ifr {
     width: 75vw;
-    height: calc(calc(75vw * 9) / 16); /* 45*9/16 */
+    height: calc(calc(75vw * 9) / 16);
+    /* 45*9/16 */
     margin-left: 2vw;
     margin-right: 2vw;
   }
 }
-@media (max-width: 600px) {
+
+@media (max-width: 800px) {
   section.visor {
     width: 100%;
   }
