@@ -2,7 +2,8 @@ section.page {
   position: absolute;
   width: 100%;
   height: 100vh;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: var(--colorFondo1);
   z-index: 5;
   top: 0;
@@ -14,12 +15,12 @@ section.page {
 }
 
 section.page::-webkit-scrollbar-track {
-  background-color: var(--colorFondo2);
+  background-color: var(--colorFondo1);
 }
 
 section.page::-webkit-scrollbar {
   width: 13px;
-  background-color: var(--colorFondo2);
+  background-color: var(--colorFondo1);
 }
 
 section.page::-webkit-scrollbar-thumb {
@@ -62,7 +63,8 @@ section.page.load {
 
 .profile .description {
   color: #444;
-  width: 400px;
+  white-space: pre-wrap;
+  width: 100%;
 }
 
 .profile .btn-segir {
