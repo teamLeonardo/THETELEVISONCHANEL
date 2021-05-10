@@ -7,20 +7,6 @@ export default ({ onclose, state, video }) => {
   const [vide, load, erro] = useDownloadURL(storage().ref(video))
   const [btnshow, setBtnShow] = useState(0)
 
-  // console.log(FonrtVideoRef.current);
-  const PlayInpause = (e) => {
-    const v2 = document.querySelector(".back"),
-      v1 = document.querySelector(".ifr");
-    if (v1.paused && v2.paused) {
-      v1.play()
-      v2.play()
-      setBtnShow(1)
-    }
-    else {
-      v1.pause()
-      v2.pause()
-      setBtnShow(2)
-    }
 
 
   }
