@@ -123,7 +123,11 @@ export default ({ onclick, state }) => {
                       onclick(res, video);
                     }}
                     key={doc.id}
-                  />
+                  >
+                    <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", height: "100%" }}>
+                      title
+                    </div>
+                  </CardHover>
                 );
               })}
             </div>

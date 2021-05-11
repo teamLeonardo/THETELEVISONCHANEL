@@ -13,30 +13,52 @@ export default ({ onclose, state, video }) => {
   const [volumen, setVolumen] = useState(false)
 
   const ReffVideo1 = useRef(null)
-  const ReffVideo2 = useRef(null)
 
   const [vide, load, erro] = useDownloadURL(storage().ref(video))
 
 
   useEffect(() => {
-    if (state === true && vide && ReffVideo1 && ReffVideo2) {
+    if (state === true && vide && ReffVideo1) {
 
-      ReffVideo2.current.play()
-      ReffVideo1.current.play()
+      chang()
 
     }
-  }, [state, vide, ReffVideo1, ReffVideo2])
+    return ()=>{
+      setPlay(false)
+      setVolumen(false)
+    }
+  }, [state, vide, ReffVideo1])
 
 
   const chang = () => {
-    if (!play) {
-      ReffVideo2.current.play()
-      ReffVideo1.current.play()
-    }else{
-      ReffVideo2.current.pause()
-      ReffVideo1.current.pause()
+    if (ReffVideo1) {
+      if (ReffVideo1.current.paused) {
+        ReffVideo1.current.play()
+      } else {
+        ReffVideo1.current.pause()
+      }
+      setPlay(!play)
     }
-    setPlay(!play)
+  }
+
+  function setOnPlay() {
+    const canvas = document.getElementById('camba');
+    if (canvas && ReffVideo1) {
+      const ctx = canvas.getContext('2d');
+      var $this = ReffVideo1.current; //cache
+      $this.addEventListener('loadedmetadata', function () {
+        canvas.width = $this.videoWidth;
+        canvas.height = $this.videoHeight;
+      });
+
+      canvas.height = $this.videoHeight;
+      (function loop() {
+        if (!$this.paused && !$this.ended) {
+          ctx.drawImage($this, 0, 0);
+          setTimeout(loop, 1000 / 30); // drawing at 30fps
+        }
+      })();
+    }
   }
 
   return (
@@ -48,16 +70,18 @@ export default ({ onclose, state, video }) => {
               <video
                 ref={ReffVideo1}
                 loop={false}
+                onPlay={setOnPlay}
                 onMouseOutCapture={() => console.log("capture out")}
                 onMouseOverCapture={() => console.log("capture over")}
                 className="ifr"
+                onEndedCapture={()=>setPlay(false)}
                 muted={!volumen}
               >
                 <source src={vide} typeof="video/mp4" />
               </video>
               <span id="play" onClick={chang}>
                 {
-                  play ? (
+                  !play ? (
                     <i className="fas fa-play"></i>
                   ) : (
                     <i className="fas fa-pause"></i>
@@ -74,9 +98,7 @@ export default ({ onclose, state, video }) => {
                 }
               </span>
             </div>
-            <video loop={false} ref={ReffVideo2} className="back" muted>
-              <source src={vide} typeof="video/mp4" />
-            </video>
+            <canvas id="camba" className="back" />
           </>
         )
       }
