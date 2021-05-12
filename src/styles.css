@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Gelasio&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,600;1,100;1,600&display=swap');
 :root {
   font-family: "Gelasio", serif;
-  --colorBtn: #a377cf; 
+  --colorBtn: #a377cf;
   --colorFondo1: #ffffff;
   --colorFondo2: #000000;
   --colorScroll: #a377cf;
-  
 }
 
 html, body {
