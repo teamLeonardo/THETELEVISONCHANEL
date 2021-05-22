@@ -130,7 +130,7 @@ export class CardHover extends React.Component {
   };
 
   setTransition = () => {
-    const duration = 1800;
+    const duration = 500;
     this.wrapperEl.style.transition = `all ${duration}ms cubic-bezier(.03,.98,.52,.99)`;
     this.transitionTimeoutId = setTimeout(() => {
       this.wrapperEl.style.transition = "";

@@ -1,0 +1,45 @@
+.tab-cont
+    width: 100%
+    .tab
+        width: 100%
+        display: flex
+        justify-content: center
+        height: auto
+        .item
+            height: 1rem
+            width: 60px
+            display: flex
+            justify-content: center
+            align-items: center
+            box-sizing: border-box
+            padding: 1.2rem 4.5rem
+            border: 1px solid #ccc
+            font-size: 18px
+            &:hover
+                background-color: var(--colorScroll)
+                color: #fff
+section.page
+    &.active
+        .profile
+            padding: 0 1.2rem
+        .tab
+            width: 100%
+            display: flex
+            justify-content: center
+            height: auto
+            .item
+                width: 10%
+                padding: 1.2rem 3rem
+
+@media (max-width: 800px)
+    .page
+        padding: 0 10px
+    .tab-cont
+        .tab
+            width: 100%
+            display: flex
+            justify-content: center
+            height: auto
+            .item
+                width: 25%
+                padding: 1.2rem 3.3rem

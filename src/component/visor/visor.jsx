@@ -1,8 +1,6 @@
-import "video.js/dist/video-js.css"
 import "./visor.css";
 import { useDownloadURL } from "react-firebase-hooks/storage"
 import { storage } from "../../firebase";
-import VideoPlayer from "./viedo";
 import { useEffect, useRef, useState } from "react";
 
 

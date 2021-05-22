@@ -9,20 +9,28 @@ import {
 
 import App from "./App";
 import Login from "./admin/Login";
+import Root from "./admin/segurity/Root";
+import AuthContextProvider from "./admin/context/auth";
+import SegurityRouter from "./admin/segurity/segurityRouter";
+import Main from "./admin/Main";
 
 const rootElement = document.getElementById("root");
 
+
+
 const Routing = () => {
-  return <Router>
-    <Switch>
-      <Route path="/admin">
-        <Login />
-      </Route>
-      <Route path="/">
-        <App />
-      </Route>
-    </Switch>
-  </Router>
+  return <AuthContextProvider>
+    <Root>
+      <Router>
+
+        <Switch>
+          <SegurityRouter path="/login" component={Login} type="public" exact={false} />
+          <SegurityRouter path="/admin" component={Main} type="private" exact={false} />
+          <Route path="/" component={App} exact={true} />
+        </Switch>
+      </Router>
+    </Root>
+  </AuthContextProvider>
 }
 
 ReactDOM.render(
