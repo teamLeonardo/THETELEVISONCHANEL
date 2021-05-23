@@ -1,9 +1,20 @@
 import "./styles/login.css"
 import imgenes from "./assets/leo.jpeg"
 import { useState } from "react"
+import { auth } from "../firebase";
 export default () => {
     const [active, setActive] = useState(false);
     const [pass, setPass] = useState("");
+
+    const hamdleClick = async function () {
+        const mail = "leonardosm3.14@gmail.com";
+
+        if (pass) {
+            await auth.signInWithEmailAndPassword(mail, pass)
+        }
+
+    }
+
     return <div className="login">
         <div className="container-login">
 
@@ -31,7 +42,7 @@ export default () => {
                     onBlurCapture={() => setActive(false)}
                 />
             </div>
-            <button className="btn-login">
+            <button onClick={hamdleClick} className="btn-login">
                 LOGIN
             </button>
         </div>

@@ -13,6 +13,7 @@ import Root from "./admin/segurity/Root";
 import AuthContextProvider from "./admin/context/auth";
 import SegurityRouter from "./admin/segurity/segurityRouter";
 import Main from "./admin/Main";
+import Admin from "./admin";
 
 const rootElement = document.getElementById("root");
 
@@ -25,7 +26,7 @@ const Routing = () => {
 
         <Switch>
           <SegurityRouter path="/login" component={Login} type="public" exact={false} />
-          <SegurityRouter path="/admin" component={Main} type="private" exact={false} />
+          <SegurityRouter path="/admin" component={Admin} type="private" exact={false} />
           <Route path="/" component={App} exact={true} />
         </Switch>
       </Router>

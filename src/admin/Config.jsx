@@ -1,5 +1,6 @@
 export default ()=>{
+
     return <div>
-        perfilF
+        Comfig
     </div>
 }
