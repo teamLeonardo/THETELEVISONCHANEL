@@ -28,19 +28,10 @@ export default class VideoPlayer extends React.Component {
 
 
 
-    // destroy player on unmount
-    componentWillUnmount() {
-        if (this.player) {
-            this.player.dispose()
-        }
-    }
 
-    // wrap the player in a div with a `data-vjs-player` attribute
-    // so videojs won't create additional wrapper in the DOM
-    // see https://github.com/videojs/video.js/pull/3856
     render() {
         return (
-            <video ref={node => this.videoNode = node} className="video-js ifr vjs-big-play-centered"></video>
+            <video ref={node => this.videoNode = node} className="ifr"></video>
         )
     }
 }

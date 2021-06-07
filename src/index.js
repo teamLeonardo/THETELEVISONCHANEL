@@ -27,7 +27,7 @@ const Routing = () => {
         <Switch>
           <SegurityRouter path="/login" component={Login} type="public" exact={false} />
           <SegurityRouter path="/admin" component={Admin} type="private" exact={false} />
-          <Route path="/" component={App} exact={true} />
+          <Route path="/" component={() => <App />} exact={true} />
         </Switch>
       </Router>
     </Root>

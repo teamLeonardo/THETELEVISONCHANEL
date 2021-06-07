@@ -12,20 +12,19 @@ export default ({ onclose, state, video }) => {
 
   const ReffVideo1 = useRef(null)
 
-  const [vide, load, erro] = useDownloadURL(storage().ref(video))
 
 
   useEffect(() => {
-    if (state === true && vide && ReffVideo1) {
+    if (state === true && video && ReffVideo1) {
 
       chang()
 
     }
-    return ()=>{
+    return () => {
       setPlay(false)
       setVolumen(false)
     }
-  }, [state, vide, ReffVideo1])
+  }, [state, video, ReffVideo1])
 
 
   const chang = () => {
@@ -62,20 +61,21 @@ export default ({ onclose, state, video }) => {
   return (
     <section className="visor">
       {
-        (state === true && vide) && (
+        (state === true && video) && (
           <>
             <div className="fonrt">
               <video
                 ref={ReffVideo1}
                 loop={false}
+                style={{backgroundColor: "#000"}}
                 onPlay={setOnPlay}
                 onMouseOutCapture={() => console.log("capture out")}
                 onMouseOverCapture={() => console.log("capture over")}
                 className="ifr"
-                onEndedCapture={()=>setPlay(false)}
+                onEndedCapture={() => setPlay(false)}
                 muted={!volumen}
               >
-                <source src={vide} typeof="video/mp4" />
+                <source src={video} typeof="video/mp4" />
               </video>
               <span id="play" onClick={chang}>
                 {
@@ -100,8 +100,6 @@ export default ({ onclose, state, video }) => {
           </>
         )
       }
-      {load && <span>cargando</span>}
-      {erro && <span>error</span>}
       <span className="close-visor" onClick={() => onclose(false)}>
         <i className="fas fa-times-circle"></i>
       </span>

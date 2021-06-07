@@ -1,0 +1,43 @@
+.ProgressUpload
+    display: flex
+    position: fixed
+    justify-content: center
+    align-items: center
+    width: 100vw
+    height: 100vh
+    z-index: 999
+    background-color: #00000050
+    .containerProgress
+        background-color: #fff
+        min-width: 300px
+        min-height: 250px
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 1rem
+        .commentProgress
+            color: #333
+        .progress-bar
+            background: #DEE2E3
+            border-radius: 99px
+            width: 200px
+            height: 5px
+            position: relative
+
+            &::before
+                border-radius: 99px
+                position: absolute
+                height: 5px
+                background: #1E9EF6
+                content: ''
+                width: 0
+                transition: width .2s
+
+        $start: 1
+        $end: 10
+
+        @for $i from $start through $end
+
+            .progress-bar-#{$i}::before
+                width: $i * 1%
